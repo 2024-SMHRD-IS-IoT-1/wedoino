@@ -1,23 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+// import './App.css';
+import { useState } from 'react';
+import Login from './components/Login'
 
 function App() {
+  const [login, setlogin] = useState(false);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div>
+      
+      <header>
+        <h1>프로젝트</h1>
       </header>
+      <div style={{backgroundColor: 'red' }}>
+        {login ? <Login /> : <p>컴포넌트</p>}
+      </div>
+      <footer>
+        <button onClick={() => {
+          setlogin(login ? false : true)
+        }} >패널관리</button>
+      </footer>
+
+
     </div>
   );
 }
