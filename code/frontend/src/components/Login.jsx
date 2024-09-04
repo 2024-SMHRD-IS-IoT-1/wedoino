@@ -58,7 +58,7 @@ export default function Login() {
       <div>
         <br />
         <div className="titleWrap">
-          이메일과 비밀번호를
+          사원ID와 비밀번호를
           <br />
           입력해주세요
         </div>
@@ -93,12 +93,13 @@ export default function Login() {
 
           <br /><br />
           <div>
-            <Link to={'/regist/request'}>
-            <button className='bottomButton'>사원등록</button>
-              </Link>
             <button onClick={sendData} disabled={notAllow} className="bottomButton">
               확인
             </button>
+            <br /><br />
+            <Link to={'/regist/request'}>
+            <button className='bottomButton'>사원등록</button>
+              </Link>
           </div>
         </div>
       </div>

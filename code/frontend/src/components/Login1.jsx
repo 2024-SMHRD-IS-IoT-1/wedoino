@@ -119,7 +119,6 @@ function Login1() {
                             } else {
                                 setPwValid(false);
                             }
-
                         }} />
                 </div>
                 <div className="errorMessageWrap">
