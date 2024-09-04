@@ -51,7 +51,7 @@ input {
 input::placeholder {
     color: #dadada;
 }
-input[type=date]::-webkit-datetime-edit-text {
+/* input[type=date]::-webkit-datetime-edit-text {
     -webkit-appearance: none;
     display: none;
 }
@@ -66,7 +66,7 @@ input[type=date]::-webkit-datetime-edit-day-field {
 input[type=date]::-webkit-datetime-edit-year-field {
     -webkit-appearance: none;
     display: none;
-}
+} */
 
 .email {
     width: 37%;
