@@ -5,12 +5,14 @@ import Login from './Login'
 
 function Main() {
     const [login,setlogin]=useState(false);
+    const showRef = useRef();
+
     return (
         <div>
             <header>
                 <h1>프로젝트</h1>
-                <div>
-        <div>
+            <div>
+            <div>
             <input type='text' placeholder='주차장 위치를 입력하세요'
             onChange={(e)=>{
                 showRef.current = e.target.value
@@ -20,8 +22,9 @@ function Main() {
                 console.log(showRef.current)
             }}/>
         
+            </div>
         </div>
-            </header>
+        </header>
             <div  className='whole'>
         <div>
           <div className='whole'>
