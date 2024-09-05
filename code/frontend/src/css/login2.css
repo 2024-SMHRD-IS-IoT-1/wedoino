@@ -15,16 +15,25 @@
     display: flex;
     flex-direction: column;
 }
-
-h1 {
-    margin-top: 87px;
-    font-size: 26px;
-    font-weight: bold;
-    color: #262626;
+.serchPage>input{
+    position: relative;
+    width: 80%;
+    border: 2px solid #efbbff;
 }
+.serchPage>button{
+    position: relative;
+    left:2%;
+    width: 15%;
+    height: 35PX;
+    border: 2px solid #9e30f4;
+    border-radius: 8px;
 
+}
+.permitPage{
+    visibility: hidden;
+}
 p {
-    font-size: 12px;
+    font-size: 18px;
     font-weight: 600;
     color: #262626;
     
@@ -39,18 +48,26 @@ select {
     width: 100%;
     outline: none;
 	border: none;
-    height: 25px;
+    height: 30px;
     font-size: 14px;
 	font-weight: 400;
 }
 option{
     color: #262626;
 }
+input{
+    height: 30px;
+    border-radius: 8px;
 
+}
+input:focus-within {
+    border: 1px solid #9e30f4;
+}
 .bottomButton {
     width: 100%;
-    height: 30px;
+    height: 50px;
     border: none;
+    font-size: 20px;
     font-weight: bold;
     border-radius: 64px;
     background-color: #9e30f4;
