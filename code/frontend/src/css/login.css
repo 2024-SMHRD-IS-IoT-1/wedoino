@@ -78,6 +78,17 @@ a{
     background-color: #dadada;
     color: white;
 }
+.bottomButton_s {
+    width: 20%;
+	height: 20px;
+    border: none;
+    font-weight: bold;
+    border-radius: 64px;
+    background-color: #9e30f4;
+    color: white;
+    margin-bottom: 16px;
+    cursor: pointer;
+}
 
 .errorMessageWrap {
     margin-top: 8px;
