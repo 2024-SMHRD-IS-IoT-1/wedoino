@@ -38,8 +38,6 @@ function App() {
       )
   }
 
-
-
   return (
     <div>
         {/* Info가 있으면 바로 패널페이지로
@@ -61,9 +59,7 @@ function App() {
 
           {login ? <Login /> : <Park/>}
 
-          
-          
-          
+
         
     </div>
   );

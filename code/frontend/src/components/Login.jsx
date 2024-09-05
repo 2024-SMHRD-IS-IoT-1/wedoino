@@ -46,6 +46,7 @@ export default function Login() {
           console.log("res.info",res.data.info);
           console.log("Info",Info);
           sessionStorage.setItem('info', JSON.stringify(res.data.info))
+          setlogin(false);
           nav('/panel');
         }
 
@@ -63,7 +64,7 @@ export default function Login() {
         <br />
         <button className="bottomButton_s" onClick={()=>{
           setlogin(false);
-        }}>메인페이지로</button>
+        }}>메인으로</button>
         <div className="titleWrap">
           사원ID와 비밀번호를
           <br />

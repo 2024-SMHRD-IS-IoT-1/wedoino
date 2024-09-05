@@ -75,3 +75,13 @@ input:focus-within {
     margin-bottom: 16px;
     cursor: pointer;
 }
+.bottomButton_s {
+    width: 80px;
+    height: 20px;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 64px;
+    background-color: #9e30f4;
+    color: white;
+    cursor: pointer;
+}
