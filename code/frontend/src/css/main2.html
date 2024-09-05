@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background-color: #000000ab; /* 배경 색상 */
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            display: flex;
+            gap: 20px; /* 사각형 간격 */
+        }
+
+        .box {
+            width: 100px;
+            height: 150px;
+        }
+
+        .red-box {
+            background-color: #FF4136; /* 빨간색 */
+        }
+
+        .green-box {
+            background-color: #2ECC40; /* 초록색 */
+        }
+
+        .btn {
+        width: 150px;
+        height: 46px;
+        
+        /* 버튼 위치 */
+        position: relative;
+        left: 50px;
+        top: 50px;
+        
+        /* 상자 디자인 큰틀 */
+        margin-bottom: 30px;
+        border: 0px;
+        background-color: #E4EBF5;
+            
+        /* 그림자 */
+        border-radius: 10px;
+        box-shadow:.4rem .3rem 0.7rem #BEC5D0,
+                    -.2rem -.2rem .4rem #FBFBFB;
+
+        /* 글씨 */
+        color: #333333;
+        font-size: 1.3em;
+        font-weight: bold;
+        }
+        
+        .btn:active {
+        /*버튼 눌리는 효과*/
+        box-shadow: inset -.3rem -.1rem 1.4rem  #FBFBFB, 
+                    inset .3rem .4rem .8rem #BEC5D0; 
+        cursor: pointer;
+        }
+</style>
+</head>
+<body>
+    <div class="container">
+        <!-- 빨간 사각형 5개 -->
+        <div class="box red-box"></div>
+        <div class="box green-box"></div>
+        <div class="box red-box"></div>
+        <div class="box green-box"></div>
+        <div class="box red-box"></div> 
+             
+    </div>
+    <br /> <br /> 
+    <div>
+        
+        <input type="button" class="btn" name="btn" value="Button">
+    </div>
+
+
+</body>
+</html>
