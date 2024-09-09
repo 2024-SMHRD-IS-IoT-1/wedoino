@@ -38,7 +38,7 @@ p {
     border: 1px solid #e2e0e0;
 }
 .inputWrap:focus-within {
-    border: 1px solid #9e30f4;
+    border: 1px solid #3b90a1;
 }
 input {
     width: 100%;
@@ -78,7 +78,7 @@ input[type=date]::-webkit-datetime-edit-year-field {
     border: none;
     font-weight: bold;
     border-radius: 64px;
-    background-color: #9e30f4;
+    background-color: #3b90a1;
     color: white;
     margin-bottom: 16px;
     cursor: pointer;

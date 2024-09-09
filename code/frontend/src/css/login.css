@@ -44,7 +44,7 @@
     border: 1px solid #e2e0e0;
 }
 .inputWrap:focus-within {
-    border: 1px solid #9e30f4;
+    border: 1px solid #3b90a1;
 }
 
 .input {
@@ -68,7 +68,7 @@ a{
     border: none;
     font-weight: bold;
     border-radius: 64px;
-    background-color: #9e30f4;
+    background-color: #3b90a1;
     color: white;
     margin-bottom: 16px;
     cursor: pointer;
@@ -78,15 +78,15 @@ a{
     background-color: #dadada;
     color: white;
 }
-.bottomButton_s {
+.bottomButton_s1 {
     width: 20%;
 	height: 20px;
     border: none;
     font-weight: bold;
     border-radius: 64px;
-    background-color: #9e30f4;
-    color: white;
+    background-color: #3b90a1;
     margin-bottom: 16px;
+    color: white;
     cursor: pointer;
 }
 

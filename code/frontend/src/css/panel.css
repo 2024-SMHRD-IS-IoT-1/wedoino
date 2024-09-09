@@ -1,140 +1,151 @@
 /* 전반적인 페이지 스타일 */
 
 body {
-    background-color:   #0d0f15; /* 어두운 우주 같은 배경 */
-    color: #e8e8e8; 
-    font-family: 'Roboto'/*, sans-serif*/; /* 간결하고 미래적인 느낌 */
-     margin: 0;
-    padding: 0; 
-    /*display: flex;*/
+    background-color: #0d0f15;
+    /* 어두운 우주 같은 배경 */
+    color: #e8e8e8;
+    font-family: 'Roboto'
+        /*, sans-serif*/
+    ;
+    /* 간결하고 미래적인 느낌 */
+    margin: 0;
+    padding: 0;
+    /* display: flex; */
     justify-content: center;
     align-items: center;
     /*height: 100vh;*/
-    width : 100%;
+    width: 100%;
 
-    
-  }
-  html, body {
-    height:100%
-  }
-  
-  /* 1 발전현황 컨테이너 */
-  .container {
-    background-color: #1b1e24; /* 어두운 패널 배경 */
+
+}
+/* 
+body {
+    height: 100%
+} */
+
+/* 1 발전현황 컨테이너 */
+.container {
+    background-color: #1b1e24;
+    /* 어두운 패널 배경 */
     border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8); /* 우주에서 떠 있는 패널 느낌 */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+    /* 우주에서 떠 있는 패널 느낌 */
     padding: 30px, 30px, 30px, 30px;
     width: 1000px;
-    height:600px;  
+    height: 600px;
     text-align: center;
     align-items: center;
-        
-  }
-  /* 2 전력사용현황 컨테이너 */
-  .container_eustate {
-    background-color: #1b1e24; /* 어두운 패널 배경 */
+
+}
+
+/* 2 전력사용현황 컨테이너 */
+.container_eustate {
+    background-color: #1b1e24;
+    /* 어두운 패널 배경 */
     border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8); /* 우주에서 떠 있는 패널 느낌 */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+    /* 우주에서 떠 있는 패널 느낌 */
     padding: 10px;
     width: 30%;
     max-width: 1800px;
     text-align: center;
     align-items: center;
-  }
-  /* 3 주차장이용실태 컨테이너 */
-  .container_foot {
-    background-color: #1b1e24; /* 어두운 패널 배경 */
+}
+
+/* 3 주차장이용실태 컨테이너 */
+.container_foot {
+    background-color: #1b1e24;
+    /* 어두운 패널 배경 */
     border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8); /* 우주에서 떠 있는 패널 느낌 */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+    /* 우주에서 떠 있는 패널 느낌 */
     padding: 10px;
     height: 250px;
-    width: 100%;
+    width: 978px;
     max-width: 2700px;
     text-align: center;
     align-items: center;
-  }
-  
-  /* 타이틀 스타일 */
-  h1 {
-    color: rgb(203, 217, 218);/*#00d4ff; /*관리자창*/
+}
+
+/* 타이틀 스타일 */
+h1 {
+    color: rgb(203, 217, 218);
+    /*#00d4ff; /*관리자창*/
     font-size: 3em;
     margin-bottom: 20px;
     letter-spacing: 2px;
     text-transform: uppercase;
-  }
-  
-  /* 서브 타이틀 */
-  h2 {
-    color: rgb(153, 202, 211); /* 고대비 강조 색상 */
+}
+
+/* 서브 타이틀 */
+h2 {
+    color: rgb(153, 202, 211);
+    /* 고대비 강조 색상 */
     font-size: 2em;
     margin-bottom: 40px;
-  }
-  
-  /* 버튼 스타일 */
-  button {
-    background-color: #3b90a1; /* 네온 블루 버튼 */
-    color: #0d0f15;
-    border: none;
-    padding: 15px 30px;
-    font-size: 1.2em;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  button:hover {
-    background-color: #ffdd57; /* 호버 시 노란색으로 변경 */
-    color: #0d0f15;
-  }
-  
-  /* 애니메이션 */
-  @keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0; }
-  }
-  
-  .status-indicator {
+}
+
+
+/* 애니메이션 */
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+.status-indicator {
     background-color: #ff5757;
     width: 15px;
     height: 15px;
     border-radius: 50%;
     display: inline-block;
     margin-right: 10px;
-    animation: blink 1s infinite; /* 깜빡이는 전력 상태 */
-  }
-  
-  /* 카드 스타일 */
-  .card_container {
-    align-items: center;     
+    animation: blink 1s infinite;
+    /* 깜빡이는 전력 상태 */
+}
+
+/* 카드 스타일 */
+.card_container {
+    align-items: center;
     display: flex;
     flex-direction: column;
-  }
+}
 
-  .card {
-    background-color: #282c34; /* 다크 카드 */
+.card {
+    background-color: #282c34;
+    /* 다크 카드 */
     border-radius: 10px;
     padding: 20px;
     margin: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* 그림자 효과 */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    /* 그림자 효과 */
     display: inline-block;
     width: 200px;
-  }
-  
-  .card-title {
+}
+
+.card-title {
     font-size: 1.3em;
     margin-bottom: 10px;
     color: #e8e8e8;
-  }
-  
-  .card-value {
+}
+
+.card-value {
     font-size: 2em;
-    color: #00d4ff; /* 데이터 강조 색상 */
-  }
-  
-  .side{
-    align-items: center;     
+    color: #00d4ff;
+    /* 데이터 강조 색상 */
+}
+
+.side {
+    align-items: center;
     display: flex;
-  }
+}
+
 /* 
 background-color: #1b1e24 ;
 justify-content: center;

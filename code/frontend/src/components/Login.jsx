@@ -62,7 +62,7 @@ export default function Login() {
     <div className="page">
       <div>
         <br />
-        <button className="bottomButton_s" onClick={()=>{
+        <button className="bottomButton_s1" onClick={()=>{
           setlogin(false);
         }}>메인으로</button>
         <div className="titleWrap">

@@ -18,14 +18,14 @@
 .serchPage>input{
     position: relative;
     width: 80%;
-    border: 2px solid #efbbff;
+    border: 2px solid #79daee;
 }
 .serchPage>button{
     position: relative;
     left:2%;
     width: 15%;
     height: 35PX;
-    border: 2px solid #9e30f4;
+    border: 2px solid #3b90a1;
     border-radius: 8px;
 
 }
@@ -40,7 +40,7 @@ p {
 }
 
 select:focus-within {
-    border: 1px solid #9e30f4;
+    border: 1px solid #3b90a1;
 }
 select { 
     color: #dadada;
@@ -61,7 +61,7 @@ input{
 
 }
 input:focus-within {
-    border: 1px solid #9e30f4;
+    border: 1px solid #3b90a1;
 }
 .bottomButton {
     width: 100%;
@@ -70,18 +70,19 @@ input:focus-within {
     font-size: 20px;
     font-weight: bold;
     border-radius: 64px;
-    background-color: #9e30f4;
+    background-color: #3b90a1;
     color: white;
     margin-bottom: 16px;
     cursor: pointer;
 }
 .bottomButton_s {
     width: 80px;
-    height: 20px;
+    /* height: 20px; */
+    padding: 0;
     font-size: 15px;
     font-weight: bold;
     border-radius: 64px;
-    background-color: #9e30f4;
+    background-color: #3b90a1;
     color: white;
     cursor: pointer;
 }

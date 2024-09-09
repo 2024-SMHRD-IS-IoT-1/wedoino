@@ -1,8 +1,10 @@
 const express = require("express");
 const router = express.Router();
+const conn = require("../config/DB");
 
-router.get('/',(req,res)=>{
 
+router.post('/',(req,res)=>{
+    
 })
 
 module.exports = router;
