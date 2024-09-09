@@ -1,0 +1,41 @@
+
+.normal_blank{
+    top: 2;
+}
+.normal_blank button{
+    width: 100px;
+    height: 70px;
+    display: flex;
+    flex-direction: column; 
+    margin-left: 30px;
+}
+.row_blank{
+    margin-left: 100px;
+    
+
+}
+.row_blank button{  
+    width: 75px;  
+    height:95px;  
+    margin: 1px;
+}
+
+.blank div{
+    width: 30px;
+}
+
+.pop_up{
+    position: absolute;
+    width: 280px;
+    top: 200px;
+    font-size: larger;
+    background-color: aliceblue;
+    
+    border-radius: 10px;
+    padding: 30px;
+    margin: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* 그림자 효과 */
+    display: inline-block;
+   
+}
+

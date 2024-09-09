@@ -1,66 +1,58 @@
-import { useContext, useEffect, useRef, useState } from 'react';
+import { Component, createContext, useEffect, useState } from 'react';
+import Login from './Login'
+// import Panel from './panel';
 import { useNavigate } from 'react-router-dom';
-
-import instance from './Axios';
-import Login from './Login';
-import Park from './Park';
-import { Data } from '../AppMain'
+import Parking from './Parking';
+import Parking_row from './Parking_row';
+import '../css/main.css'
+import Popup from './Popup';
+export const Data = createContext();
 
 function App() {
   const nav = useNavigate();
-  const {login, setlogin} = useContext(Data);
-  const { Info, setInfo } = useContext(Data);
-
-  const isLogin = () =>{
-    if (Info) {
-      console.log("SSSSSSSSS")
-      console.log(Info)
-      nav('/panel');
-    } else {
-      console.log("dddddd")
-      console.log(Info);
-      setlogin(true);
-    }
-  }
+  const [login, setlogin] = useState(false);
+  const [trainerInfo, setTrinerInfo] = useState({});
   
-  const logout = () => {
-    instance.get('/logout')
-      .then((res) => {
-        console.log(res);
-        if(res.data === "세션삭제"){
-          setInfo();
-          alert("logout");
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-      }
-      )
-  }
+  
+  useEffect(() => {
+    setTrinerInfo(JSON.parse(sessionStorage.getItem('trainer')));
+  }, [])
+  
+  
 
   return (
     <div>
-        {/* Info가 있으면 바로 패널페이지로
-            없으면 login 컴포넌트가 생기기 */}
-        <div style={{ display: 'flex' }}>
-          <button onClick={isLogin}>
-            <img src='img/logo.png' width={'100px'} alt='logo' />
-          </button>
-          <p style={{ fontSize: '35px', width:'70%' }}>프로젝트</p>
-          {
-            Info ?<button className='loginoutButton' onClick={logout}>Logout</button>
-                  :<button className='loginoutButton' 
-                    onClick={() => {
-                      setlogin(login ? false : true)
-                    }} >Login</button>
-          }
+      <Data.Provider
+        value={{
+          trainerInfo
+        }}>
+
+        <h1>프로젝트</h1>
+
+        <div style={{ height: '800px', backgroundColor: 'lightgrey' }}>
+          {login
+            ? <Login />
+            : <div style={{ display: 'flex' }}>      
+                <div className='whole'style={{zIndex:1}}>
+                  <Parking />
+                </div>
+                <div style={{ marginLeft: '30px', zIndex:1}}>
+                  <br /><br /><br />
+                  <Parking_row />
+                </div>
+              </div>
+            }
         </div>
 
+        <footer>
+          <button onClick={() => {
+            !trainerInfo
+              ? setlogin(login ? false : true)
+              : nav('/panel')
+          }} >패널관리</button>
+        </footer>
 
-          {login ? <Login /> : <Park/>}
-
-
-        
+      </Data.Provider>
     </div>
   );
 }
