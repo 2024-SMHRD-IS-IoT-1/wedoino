@@ -2,6 +2,7 @@ import React, { useRef } from 'react'
 import { useState, useEffect } from 'react'
 import '../css/login2.css'
 import instance from './Axios'
+import { Link } from 'react-router-dom'
 
 const Login2 = () => {
     const [region, setRegion] = useState()
@@ -13,46 +14,58 @@ const Login2 = () => {
     const phone = useRef();
     const permit = useRef();
     const [phoneValid, setPhoneValid] = useState(true);
-    const [user,setUser] = useState({emp_name:'',
-                                    emp_birthdate:'',
-                                    emp_phone:''
-                                    });     
+    const [user, setUser] = useState({
+        emp_name: '',
+        emp_birthdate: '',
+        emp_phone: ''
+    });
     const sarch = () => {
         //axios를 통한 데이터 전송
-        instance.post('/regist/permit', {userphone : phone.current.value})
-        .then((res) => {
-            console.log(res)
-            if (res!="실패"){
-                setUser(res.data[0])
-                console.log(phone.current.value);
-                permit.current.style.visibility = 'visible';
-            }else{
-                setPhoneValid(false);
-            }
-        }).catch((error) => {
-            console.log(error);
-        })
+        instance.post('/regist/permit', { userphone: phone.current.value })
+            .then((res) => {
+                console.log(res)
+                if (res.data != "실패") {
+                    setUser(res.data[0])
+                    console.log(phone.current.value);
+                    permit.current.style.visibility = 'visible';
+                    console.log(('' + user.emp_birthdate).substring(0, 10))
+                } else {
+                    setPhoneValid(false);
+                }
+            }).catch((error) => {
+                console.log(error);
+            })
     }
-    const fin = ()=>{
+    const fin = () => {
         setUserDatas({
-                        userregion: region,
-                        userposition: position,
-                        usergrade: grade,
-                        startingdate: startdate
-                    })
-        setUser(user+userDatas);
-        instance.post('/regist/permit', user)
-        .then((res)=>{
-            console.log(res);
-        }).catch((error) => {
-            console.log(error);
+            user_phone: user.phone,
+            user_region: region,
+            user_position: position,
+            user_grade: grade,
+            starting_date: startdate
         })
+        console.log(userDatas);
+        instance.post('/regist/permit', userDatas)
+            .then((res) => {
+                console.log(res);
+            }).catch((error) => {
+                console.log(error);
+            })
 
     }
 
     return (
         <div className='page'>
             <br />
+            <div>
+                <Link to='/panel'>
+                    <button style={{float:'left'}} className='bottomButton_s'>이전으로</button>
+                </Link>
+                <Link to='/'>
+                    <button style={{float:'right'}} className='bottomButton_s'>메인으로</button>
+                </Link>
+            </div>
+
             <div className='serchPage'>
                 <input type="text" placeholder='핸드폰 번호를 통해 사원 검색' ref={phone} />
                 <button onClick={sarch}>Q</button>
@@ -65,7 +78,7 @@ const Login2 = () => {
 
             <br />
             <div className='permitPage' ref={permit}>
-                <h3>{user.emp_name}({user.emp_birthdate.substring(0,10)}) {user.emp_phone} 님의 사원 등록 요청입니다
+                <h3>{user.emp_name}({('' + user.emp_birthdate).substring(0, 10)}) {user.emp_phone} 님의 사원 등록 요청입니다
                     <br />아래 정보를 입력하고 등록 완료를 눌러주세요."</h3>
                 <div className="contentWrap">
                     <p>지역</p>
@@ -120,8 +133,8 @@ const Login2 = () => {
                         }} />
                 </div>
                 <br /><br />
-                <input className='bottomButton' type='submit' value='등록 완료' 
-                onClick={fin} />
+                <input className='bottomButton' type='submit' value='등록 완료'
+                    onClick={fin} />
             </div>
 
         </div>

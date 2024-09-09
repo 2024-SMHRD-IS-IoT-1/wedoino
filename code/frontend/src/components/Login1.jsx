@@ -87,7 +87,7 @@ function Login1() {
     return (
         <div className='page'>
             <Link to='/'>
-            <button style={{float:'left',width:'20%'}} className='bottomButton'>메인페이지로</button>
+            <button style={{float:'left',width:'20%'}} className='bottomButton'>메인으로</button>
             </Link>
             <br />
             <h1>사원등록</h1>

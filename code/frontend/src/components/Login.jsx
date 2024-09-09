@@ -1,15 +1,20 @@
 import React, { useContext, useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+
 import instance from './Axios';
 import '../css/login.css';
-import { Data } from './Main1'
-
-import { Link, useNavigate } from 'react-router-dom';
+//login session
+import { Data } from '../AppMain'
 
 
 export default function Login() {
+  
   const [id, setId] = useState('');
   const [pw, setPw] = useState('');
-  const { setTrainerInfo } = useContext(Data);
+  //login session
+  const { Info, setInfo } = useContext(Data);
+  const {login, setlogin} = useContext(Data);
+
 
   const nav = useNavigate();
 
@@ -32,19 +37,19 @@ export default function Login() {
     // console.log("funtion sendData",id,pw)
     e.preventDefault();
     //axios를 통한 데이터 전송
-    await instance.post('/getData', { id: id, pw: pw })
+    await instance.post('/login', { id: id, pw: pw })
       .then((res) => {
         console.log(res.data);
-        alert(res.data);
-        if (res.data == '성공') {
-          console.log("ssssssss");
+        alert(res.data.result);
+        if (res.data.result === '로그인 성공') {
+          setInfo(res.data.info);
+          console.log("res.info",res.data.info);
+          console.log("Info",Info);
+          sessionStorage.setItem('info', JSON.stringify(res.data.info))
+          setlogin(false);
           nav('/panel');
-          console.log("FFFFFFFFFFFF");
-          // setTrainerInfo(res.data.trainer);
-          // sessionStorage.setItem('trainer', JSON.stringify(res.data.trainer))
         }
-        // setId('');
-        // setPw('');
+
       })
       .catch((error) => {
         alert("로그인 실패");
@@ -57,6 +62,9 @@ export default function Login() {
     <div className="page">
       <div>
         <br />
+        <button className="bottomButton_s" onClick={()=>{
+          setlogin(false);
+        }}>메인으로</button>
         <div className="titleWrap">
           사원ID와 비밀번호를
           <br />

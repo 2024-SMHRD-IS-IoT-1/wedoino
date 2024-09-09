@@ -1,38 +1,66 @@
-import { createContext, useEffect, useState } from 'react';
-import Login from './Login'
-// import Panel from './panel';
+import { useContext, useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-export const Data = createContext();
+
+import instance from './Axios';
+import Login from './Login';
+import Park from './Park';
+import { Data } from '../AppMain'
 
 function App() {
   const nav = useNavigate();
-  const [login, setlogin] = useState(false);
-  const [trainerInfo, setTrinerInfo] = useState({});
-  useEffect(() => {
-    setTrinerInfo(JSON.parse(sessionStorage.getItem('trainer')));
-  }, [])
+  const {login, setlogin} = useContext(Data);
+  const { Info, setInfo } = useContext(Data);
+
+  const isLogin = () =>{
+    if (Info) {
+      console.log("SSSSSSSSS")
+      console.log(Info)
+      nav('/panel');
+    } else {
+      console.log("dddddd")
+      console.log(Info);
+      setlogin(true);
+    }
+  }
+  
+  const logout = () => {
+    instance.get('/logout')
+      .then((res) => {
+        console.log(res);
+        if(res.data === "세션삭제"){
+          setInfo();
+          alert("logout");
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      }
+      )
+  }
+
   return (
     <div>
-      <Data.Provider
-        value={{
-          trainerInfo
-        }}>
-
-        <h1>프로젝트</h1>
-
-        <div style={{ height: '500px', backgroundColor: 'red' }}>
-          {login ? <Login /> : <p>컴포넌트</p>}
+        {/* Info가 있으면 바로 패널페이지로
+            없으면 login 컴포넌트가 생기기 */}
+        <div style={{ display: 'flex' }}>
+          <button onClick={isLogin}>
+            <img src='img/logo.png' width={'100px'} alt='logo' />
+          </button>
+          <p style={{ fontSize: '35px', width:'70%' }}>프로젝트</p>
+          {
+            Info ?<button className='loginoutButton' onClick={logout}>Logout</button>
+                  :<button className='loginoutButton' 
+                    onClick={() => {
+                      setlogin(login ? false : true)
+                    }} >Login</button>
+          }
         </div>
 
-        <footer>
-          <button onClick={() => {
-            !trainerInfo
-              ? setlogin(login ? false : true)
-              : nav('/panel')
-          }} >패널관리</button>
-        </footer>
 
-      </Data.Provider>
+          {login ? <Login /> : <Park/>}
+
+
+        
     </div>
   );
 }
