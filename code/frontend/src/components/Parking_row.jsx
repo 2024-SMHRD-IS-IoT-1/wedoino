@@ -1,10 +1,12 @@
-import React, { useContext, useRef, useState } from 'react'
+import React, { useContext, useEffect, useRef, useState } from 'react'
 import '../css/parking.css'
 import Popup from './Popup';
 import { Data } from '../AppMain';
+import instance from './Axios';
+
 
 const Parking_row = () => {
-
+    const [sitList, setSitList] = useState([])
     const [inform, setInform] = useState(false);
     const {selected, setSelected} = useContext(Data);
     const arr1 = [31, 32, 33, 34, 35]
@@ -26,6 +28,41 @@ const Parking_row = () => {
         }
     }
 
+    useEffect(() => {
+        // 10초마다 실행
+        const intervalId = setInterval(() => {
+            // axios를 통한 데이터 전송
+            instance.post('/', { data: "1" }) // 여기에 실제 URL을 입력해야 합니다
+                .then((res) => {
+                    // console.log(typeof (res.data));
+                    // 응답 데이터 처리
+                    console.log(res.data);
+                    setSitList([])
+                    console.log("리스트 초기화 확인",sitList,typeof(sitList))
+                    const list = [];
+                    res.data.map((item)=> {
+                        console.log("map 진입",item)
+                        if (item.parking_lot.startsWith("자리")) {
+                            if (item.parking_duration > 0) {
+                                console.log(item.parking_lot)
+                                console.log("before",list)
+                                list.push(item.parking_lot);
+                                console.log("changed",list)
+                            } else {
+                                console.log(item.parking_lot,"빔")
+                            }
+                        }
+                    })
+                    setSitList(list)
+                })
+                .catch((error) => {
+                    console.error(error);
+                });
+        }, 10000); // 30초는 30000 밀리초입니다
+
+        // 클린업 함수: 컴포넌트가 언마운트될 때 interval을 정리합니다
+        return () => clearInterval(intervalId);
+    }, []);
     return (
         <div style={{ position: 'relative' }}>
             {inform && <div className='pop_up' style={{ marginLeft: '720px', top: '139px' }} ref={background}
@@ -42,7 +79,9 @@ const Parking_row = () => {
             <div style={{ position: 'absolute', display: 'contents' }}>
                 <div className='row_blank' >
                     {arr1.map((elem) => {
-                        return (<button className="sit_button" onClick={() => {
+                        return (<button key={elem} 
+                            className={(sitList.find(item => item == "자리" + elem)) ? "sit_button_change" : "sit_button"}
+                            onClick={() => {
                             console.log('1');
                             wantZero();
                             setInform(true);
@@ -52,7 +91,9 @@ const Parking_row = () => {
                     })}
                     <br />
                     {arr2.map((elem) => {
-                        return (<button className="sit_button" onClick={() => {
+                        return (<button key={elem} 
+                            className={(sitList.find(item => item == "자리" + elem)) ? "sit_button_change" : "sit_button"}
+                            onClick={() => {
                             console.log('1');
                             wantZero();
                             setInform(true);
@@ -62,7 +103,9 @@ const Parking_row = () => {
                     })}
                     <br /><br /><br /><br /><br /><br />
                     {arr3.map((elem) => {
-                        return (<button className="sit_button" onClick={() => {
+                        return (<button key={elem} 
+                                                                className={(sitList.find(item => item == "자리" + elem)) ? "sit_button_change" : "sit_button"}
+                        onClick={() => {
                             console.log('1');
                             wantZero();
                             setInform(true);
@@ -72,7 +115,9 @@ const Parking_row = () => {
                     })}
                     <br />
                     {arr4.map((elem) => {
-                        return (<button className="sit_button" onClick={() => {
+                        return (<button key={elem} 
+                            className={(sitList.find(item => item == "자리" + elem)) ? "sit_button_change" : "sit_button"}
+                            onClick={() => {
                             console.log('1');
                             setInform(true);
                             setSelected(elem);

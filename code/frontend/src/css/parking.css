@@ -17,6 +17,21 @@
     /* 호버 시 노란색으로 변경 */
     color: #0d0f15;
 }
+
+
+.sit_button_change{
+    background-color: red;
+    /* 네온 블루 버튼 */
+    color: #0d0f15;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+
 .normal_blank{
     top: 2;
 }
