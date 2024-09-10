@@ -156,3 +156,21 @@ height: 100%;
 font-size: 500%;
 color:indianred;
    */
+
+
+  /* 버튼 스타일 */
+  button {
+    background-color: #3b90a1; /* 네온 블루 버튼 */
+    color: #0d0f15;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  button:hover {
+    background-color: #ffdd57; /* 호버 시 노란색으로 변경 */
+    color: #0d0f15;
+  }

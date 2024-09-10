@@ -1,6 +1,19 @@
 
+body {
+    background-color:   #0d0f15; /* 어두운 우주 같은 배경 */
+    color: #e8e8e8; 
+    font-family: 'Roboto'/*, sans-serif*/; /* 간결하고 미래적인 느낌 */
+     margin: 0;
+    padding: 0; 
+    /*display: flex;*/
+    justify-content: center;
+    align-items: center;
+    /*height: 100vh;*/
+    width : 100%;   
+  }
+
 /* 버튼 스타일 */
-.sit_button {
+.button {
     background-color: #3b90a1;
     /* 네온 블루 버튼 */
     color: #0d0f15;
@@ -11,16 +24,8 @@
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
-
-.sit_button:hover {
-    background-color: #ffdd57;
-    /* 호버 시 노란색으로 변경 */
-    color: #0d0f15;
-}
-
-
-.sit_button_change{
-    background-color: red;
+.sit_button {
+    /* background-color: #8fbc8f; */
     /* 네온 블루 버튼 */
     color: #0d0f15;
     border: none;
@@ -28,10 +33,17 @@
     font-size: 1.2em;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    /* transition: background-color 0.3s ease;*/
 }
+/* .sit_button:hover {
+    background-color: #a9a9a9;
+     호버 시 색 변경
+    color: #0d0f15;
+}*/
 
-
+.logo {
+    background-color: #0d0f15;
+}
 .normal_blank{
     top: 2;
 }
@@ -62,12 +74,12 @@
     width: 280px;
     top: 200px;
     font-size: larger;
-    background-color: aliceblue;
-    
+    background-color: #1b1e24;
+    color: aliceblue;    
     border-radius: 10px;
     padding: 30px;
     margin: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* 그림자 효과 */
+    box-shadow: 0 0 10px rgba(194, 185, 185, 0.8); /* 그림자 효과 */
     display: inline-block;
    
 }
