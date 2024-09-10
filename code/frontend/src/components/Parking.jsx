@@ -1,11 +1,12 @@
-import React, { useRef, useState } from 'react'
+import React, { useContext, useRef, useState } from 'react'
 import '../css/parking.css'
 import Popup from './Popup'
+import { Data } from '../AppMain';
+
 
 const Parking = () => {
-
     const [inform, setInform] = useState(true);
-    const [selected, setSelected] = useState(0);
+    const {selected, setSelected} = useContext(Data);
     const arr1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     const arr2 = [11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
     const arr3 = [21, 22, 23, 24, 25, 26, 27, 28, 29, 30]

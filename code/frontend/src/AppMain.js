@@ -13,6 +13,7 @@ export const Data = createContext();
 function App() {
   const [Info, setInfo] = useState();
   const [login, setlogin] = useState(false);
+  const [selected, setSelected] = useState(0);
 
   useEffect(() => {
     setInfo(JSON.parse(sessionStorage.getItem('info')));
@@ -25,7 +26,9 @@ function App() {
         value={{Info, 
                 setInfo,
                 login,
-                setlogin}}>
+                setlogin,
+                selected,
+                setSelected}}>
         <Routes>
           {/* {
             !Info ? (<Route path='/' element={<Main/>}></Route>)
