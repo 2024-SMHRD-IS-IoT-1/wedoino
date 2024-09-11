@@ -5,7 +5,7 @@ import {createContext, useEffect, useState} from 'react';
 import Main from'./components/Main1';
 import Login1 from './components/Login1';
 import Login2 from './components/Login2';
-import Panel from './components/panel';
+import Panel from './components/Panel';
 
 export const Data = createContext();
 

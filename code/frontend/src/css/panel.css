@@ -19,10 +19,6 @@ body {
 
 }
 
-/* 
-body {
-    height: 100%
-} */
 
 /* 1 발전현황 컨테이너 */
 .container {
@@ -36,6 +32,8 @@ body {
     height: 600px;
     text-align: center;
     align-items: center;
+    margin: auto;
+
 
 }
 
@@ -61,7 +59,7 @@ body {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
     /* 우주에서 떠 있는 패널 느낌 */
     padding: 10px;
-    height: 250px;
+    height: 330px;
     width: 978px;
     max-width: 2700px;
     text-align: center;
@@ -73,9 +71,11 @@ h1 {
     color: rgb(203, 217, 218);
     /*#00d4ff; /*관리자창*/
     font-size: 3em;
+    margin-top: 30px;
     margin-bottom: 20px;
     letter-spacing: 2px;
     text-transform: uppercase;
+    text-align: center;
 }
 
 /* 서브 타이틀 */
@@ -83,7 +83,7 @@ h2 {
     color: rgb(153, 202, 211);
     /* 고대비 강조 색상 */
     font-size: 2em;
-    margin-bottom: 40px;
+    /* margin-bottom: 40px; */
 }
 
 
@@ -100,8 +100,19 @@ h2 {
     }
 }
 
-.status-indicator {
+.status-indicator_r {
     background-color: #ff5757;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 10px;
+    animation: blink 1s infinite;
+    /* 깜빡이는 전력 상태 */
+}
+
+.status-indicator_g {
+    background-color: #57ff73;
     width: 15px;
     height: 15px;
     border-radius: 50%;
@@ -147,17 +158,20 @@ h2 {
     display: flex;
 }
 
-/* 
-background-color: #1b1e24 ;
-justify-content: center;
-align-items: center;
-text-align: center;
-width: 200;
-height: 100%;
-font-size: 500%;
-color:indianred;
-   */
 
+.card_foot {
+    background-color: #282c34;
+    /* 다크 카드 */
+    border-radius: 10px;
+    padding: 20px;
+    margin: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    /* 그림자 효과 */
+    display: inline-block;
+    width: 30%;
+    height: 200px;
+
+}
 
 /* 버튼 스타일 */
 .button {
