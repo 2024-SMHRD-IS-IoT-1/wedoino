@@ -80,9 +80,15 @@ const panel = () => {
                 </div>
                 {/*3*/}
                 <div className="container_foot"><h2>주차장이용실태</h2>
-                    <h4>이용률 높은 주차장 위치</h4>
-                    <h4>평균 이용시간</h4>
-                    <h4>전년대비 주차 이용률</h4>
+                <div className='side'>
+                        <div>
+                            <h4>이용률 높은 주차장 위치 : 다구역 33</h4>
+                            <h4>평균 이용시간 :</h4>
+                        </div>
+                        <div>
+                            <h4>전년대비 주차 이용률 :</h4><img width="150" height="150" src="img/chart2.png" />
+                        </div>
+                    </div>
                 </div>{/*3*/}
 
                 <Link to={'/'}>
