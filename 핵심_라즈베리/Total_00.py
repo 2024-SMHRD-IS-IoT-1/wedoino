@@ -19,7 +19,7 @@ while(1):
     #generated_power
     cur = Cur.read_ina219()
     print(cur)
-    sql = "insert into tb_generated_power VALUES(%d,%d,%0.2f,%0.2f,%0.2f,%d,date(NOW()))"%(count,panel_idx,cur['voltage'],cur['current'],cur['power'],cur['power']/10.5*100)
+    sql = "insert into tb_generated_power VALUES(%d,%d,%0.2f,%0.2f,%0.2f,%d,NOW())"%(count,panel_idx,cur['voltage'],cur['current'],cur['power'],cur['power']/10.5*100)
     DB_0.DB_insert(sql)
     
     #flame 
