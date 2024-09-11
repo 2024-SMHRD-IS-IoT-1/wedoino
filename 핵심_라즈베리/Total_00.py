@@ -8,7 +8,7 @@ degree = 90
 ser.setServoPos(degree) # 시작위치 지정
 panel_idx = 1		# 패널명 지정
 count = 0			# 각 센서의 인덱스 값을 자동으로 늘어나게 하기 위함
-park_lot = 'A0'		# 주차위치 지정
+park_lot = '자리1'		# 주차위치 지정
 emp_no = "emp_no 002"#관리자 사번 지정
 parkCount = 0		# 주차 시간 count
 
