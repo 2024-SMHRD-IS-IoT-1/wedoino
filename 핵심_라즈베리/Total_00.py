@@ -27,7 +27,7 @@ while(1):
     print(fl)
     system = "n"
     firestation = "n"
-    sql = "insert into tb_flame values (%d,'%s','%s',NOW(),'%s')"%(count,system,firestation,emp_no)
+    sql = "insert into tb_flame values (%d,'%s','%s',NOW(),'%s')"%(count,system,firestation,emp_no,parking_lot)
     DB_0.DB_insert(sql)
     
     #parking 초음파
