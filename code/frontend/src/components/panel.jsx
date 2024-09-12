@@ -30,7 +30,7 @@ const Panel = () => {
                 }).catch((err) => {
                     console.log("[ERREOR] ", err);
                 })
-        }, 10000); // 30초는 30000 밀리초입니다
+        }, 5000); // 30초는 30000 밀리초입니다
 
         // 클린업 함수: 컴포넌트가 언마운트될 때 interval을 정리합니다
         return () => clearInterval(intervalId);
@@ -116,7 +116,7 @@ const Panel = () => {
                         </div>
                         <div className="card_foot">
                             <h3>평균 이용시간 </h3>
-                            <h1 style={{color:"#00d4ff"}}>{data.useDuration}</h1>
+                            <h1 style={{color:"#00d4ff"}}>{data.useDuration}시간</h1>
                         </div>
                         <div className='card_foot'>
                             <h3>전년대비 주차 이용률</h3>

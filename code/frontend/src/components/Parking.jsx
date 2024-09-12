@@ -51,8 +51,9 @@ const Parking = () => {
                         console.log("fire",fireList)
                     }
                     const list = [];
+
                     res.data.park.map((item) => {
-                        // console.log("map 진입", item)
+                        console.log("map 진입", item)
                         if (item.parking_lot.startsWith("자리")) {
                             if (item.parking_duration > 0) {
                                 // console.log(item.parking_lot)
@@ -70,7 +71,7 @@ const Parking = () => {
                 .catch((error) => {
                     console.error(error);
                 });
-        }, 30000); // 30초는 30000 밀리초입니다
+        }, 10000); // 30초는 30000 밀리초입니다
 
         // 클린업 함수: 컴포넌트가 언마운트될 때 interval을 정리합니다
         return () => clearInterval(intervalId);
@@ -82,14 +83,18 @@ const Parking = () => {
         console.log(sit);
         instance.post('/', { data: sit })
             .then((res) => {
-                console.log(res.data[0])
-                temp = [sit, res.data[0].panel_idx, res.data[0].panel_location]
+                console.log(res.data.park[0])
+                {
+                    (res.data.fire)
+                    ? temp = [sit, res.data.park[0].panel_idx, res.data.park[0].panel_location, "화재발생"]
+                    : temp = [sit, res.data.park[0].panel_idx, res.data.park[0].panel_location,"정상"]
+                }
                 console.log(temp)
                 setSelected(temp)
                 console.log(selected)
             }).catch((err) => {
                 console.log(err);
-                temp = [sit]
+                temp = [sit, " 통신에러"," 통신에러"," 통신에러"," 통신에러"]
                 setSelected(temp)
                 console.log(selected)
             })
@@ -105,7 +110,7 @@ const Parking = () => {
                             setInform(false);
                         }
                     }}>
-                    <Popup value={selected[0]} panel_idx={selected[1]} panel_location={selected[2]}></Popup>
+                    <Popup value={selected[0]} panel_idx={selected[1]} panel_location={selected[2]} nomal={selected[3]}></Popup>
                     <button className="sit_button" onClick={closing}>닫기</button>
                 </div>}
             </div>

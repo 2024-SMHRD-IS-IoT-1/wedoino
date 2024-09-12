@@ -48,6 +48,11 @@ const Login2 = () => {
         instance.post('/regist/permit', userDatas)
             .then((res) => {
                 console.log(res);
+                if (res.data == "성공")
+                alert("등록을 성공적으로 마쳤습니다.")
+                else if (res.data == "실패")
+                alert("등록을 실패했습니다.")
+
             }).catch((error) => {
                 console.log(error);
             })

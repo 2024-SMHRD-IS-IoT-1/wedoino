@@ -29,7 +29,12 @@ router.post('/', (req, res) => {
         conn.query(sql, [req.body.data], (err, rows) => {
             console.log(rows);
             // console.log(err);
-            res.json({ park: rows });
+            sql_f = "select parking_lot from tb_flame where created_at>= DATE_ADD(NOW(), INTERVAL -10 MINUTE) and parking_lot=?;"
+            conn.query(sql_f,[req.body.data],(err1,rows1)=>{
+
+            res.json({ park: rows, fire : rows1 });
+
+            })
         })
     }
 })

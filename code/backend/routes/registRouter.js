@@ -41,8 +41,9 @@ router.post('/permit', (req, res) => {
         console.log("등록");
         //추가된 정보 가져오기 지역 직급 등급 입사일
         console.log("get data router", req.body);
+        const add = req.body;
         let sql = "update tb_employee set emp_region = ?,emp_job=?,emp_grade=?,joined_at=?,permit='O' where userphone=?"
-        conn.query(sql, [username, userbirth, userphone], (err, rows) => {
+        conn.query(sql, [add.user_region, add.user_job, add.user_grade, add.starting_date, add.user_phone], (err, rows) => {
             console.log("rows", rows)
             if (rows) res.json("성공")
             else res.json("실패")
